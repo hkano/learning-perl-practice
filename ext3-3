@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+print "input strings: \n";
+chomp(@strings = <STDIN>);
+
+@strings = sort(@strings);
+
+print "answer1: \n";
+foreach (@strings) {
+    $_ = $_ . " ";
+}
+print @strings;
+print "\n";
+
+print "answer2: \n";
+foreach (@strings) {
+    print $_ . "\n";
+}

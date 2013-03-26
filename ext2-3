@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+use Math::Trig;
+
+print "input radius: ";
+chomp($radius = <STDIN>);
+
+if ($radius < 0) {
+    print "answer: " . 0 . "\n";
+} else {
+    print "answer: " . $radius * 2 * pi . "\n";
+}

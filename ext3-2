@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+@names = qw(fred betty barney dino wilma pebbles bamm-bamm);
+
+print "input numbers: \n";
+chomp(@numbers = <STDIN>);
+
+print "answer: \n";
+foreach (@numbers) {
+    if ($_ < 1 || $_ > scalar(@names)) {
+        print "$_ is wrong number. \n";
+    } else {
+        print $names[$_ - 1] . "\n";
+    }
+}

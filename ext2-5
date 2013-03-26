@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+print "input string: ";
+chomp($string = <STDIN>);
+
+print "input number: ";
+chomp($number = <STDIN>);
+
+$string = $string . "\n";
+$string = $string x $number;
+
+print "answer: \n";
+print $string;
