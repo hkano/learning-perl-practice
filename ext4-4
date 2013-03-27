@@ -1,0 +1,17 @@
+#!/usr/bin/perl
+
+sub greet {
+    # state $last_name = "";
+
+    print "Hi @_[0]! ";
+    if ($last_name) {
+        print "$last_name is also here!\n";
+    } else {
+        print "You are the first one here!\n";
+    }
+    
+    $last_name = @_[0];
+}
+
+&greet("Fred");
+&greet("Barney");

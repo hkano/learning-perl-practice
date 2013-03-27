@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+
+sub greet {
+    # state @names = ();
+
+    print "Hi @_[0]! ";
+    if (@names) {
+        print "I've seen: @names\n";
+    } else {
+        print "You are the first one here!\n";
+    }
+    
+    push(@names, @_[0]);
+}
+
+&greet("Fred");
+&greet("Barney");
+&greet("Wilma");
+&greet("Betty");
