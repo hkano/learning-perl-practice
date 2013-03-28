@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/(\w)\g{1}/) {
+        print "$_\n";
+    }
+}

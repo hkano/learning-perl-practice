@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+my $length = 0;
+
+foreach (keys %ENV) {
+    if ($length < length($_)) {
+        $length = length($_);
+    }
+}
+
+foreach (sort keys %ENV) {
+    printf "%-${length}s => %s\n", $_, $ENV{$_};
+}

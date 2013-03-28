@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+my %names = (
+    'fred'   => 'flintstone',
+    'barney' => 'rubble',
+    'wilma'  => 'flintstone',
+);
+
+print "input last name: ";
+chomp(my $last_name = <STDIN>);
+
+if (exists($names{$last_name})) {
+    print "filst name: $names{$last_name}\n";
+} else {
+    print "filst name: no data\n";
+}

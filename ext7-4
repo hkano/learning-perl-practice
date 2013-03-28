@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/[A-Z][^A-Z]/) {
+        print "$_\n";
+    }
+}

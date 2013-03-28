@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/(wilma|fred).*(wilma|fred)/) {
+        print "$_\n";
+    }
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/fred/) {
+        print "$_\n";
+    }
+}

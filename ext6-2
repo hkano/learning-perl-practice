@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+my @lines;
+my %line_count;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    $line_count{$_} += 1;
+}
+
+%line_count;
+foreach (sort {$line_count{$b} <=> $line_count{$a}} keys %line_count) {
+    print "$_ => $line_count{$_}\n";
+}
