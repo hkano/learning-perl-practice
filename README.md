@@ -1,6 +1,8 @@
 learning perl
 =========
 
+http://www.amazon.co.jp/dp/4873115671/
+
 Setup
 ----------------
 

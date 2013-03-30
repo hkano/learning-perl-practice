@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+my $match = 'match';
+my $word = 'beforematchafter';
+
+if ($word =~ /$match/) {
+    print "matched: |$`<$&>$'|\n";
+} else {
+    print "no match: |$_|\n";
+}

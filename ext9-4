@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+my @input_files = glob '*';
+
+foreach my $input_file (@input_files) {
+
+    unless (defined $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    my $output_file = $input_file;
+    $input_file =~ s/$/.bak/;
+    rename "$output_file", "$input_file"
+        or die "Can't rename '$input_file': $!";
+
+    unless (open $in_fh, '<', $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    unless (open $out_fh, '>', $output_file) {
+        die "Can't open '$output_file': $!";
+    }
+
+    while (<$in_fh>) {
+        if (/\A#!/) {
+            $_ .= "## Copyright (C) 20XX by Yours Truly\n";
+        }
+        print $out_fh $_;
+    }
+
+}
+
+# $^I = ".bak";
+# 
+# while (<>) {
+#     if (/\A#!/) {
+#         $_ .= "## Copyright (C) 20XX by Yours Truly\n";
+#     }
+#     print;
+# }

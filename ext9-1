@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+my $what = 'fred|barney';
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/($what){3}/i) {
+        print "matched: |$`<$&>$'|\n";
+    } else {
+        print "no match: |$_|\n";
+    }
+}

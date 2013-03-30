@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+my $match = 'a\b';
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/$match/) {
+        print "matched: |$`<$&>$'|\n";
+    } else {
+        print "no match: |$_|\n";
+    }
+} 

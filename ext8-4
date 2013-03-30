@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+my $match = '(?<word>\b\w*a\b)';
+
+my @lines;
+
+chomp(@lines = <>);
+
+foreach (@lines) {
+    if (/$match/) {
+        print "\$\+{word} contains '$+{word}'\n";
+    }
+} 

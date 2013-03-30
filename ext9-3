@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+my $input_file = $ARGV[0];
+
+unless (defined $input_file) {
+    die "Can't open '$input_file': $!";
+}
+
+my $output_file = $input_file;
+$output_file =~ s/$/.out/;
+
+unless (open $in_fh, '<', $input_file) {
+    die "Can't open '$input_file': $!";
+}
+
+unless (open $out_fh, '>', $output_file) {
+    die "Can't open '$output_file': $!";
+}
+
+while (<$in_fh>) {
+    s/Fred/\0/gi;
+    s/Wilma/Fred/gi;
+    s/\0/Wilma/gi;
+    print $out_fh $_;
+}
+
+# $^I = ".out";
+# 
+# while (<>) {
+#     s/Fred/\0/gi;
+#     s/Wilma/Fred/gi;
+#     s/\0/Wilma/gi;
+#     print;
+# }

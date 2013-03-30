@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+
+my @input_files = glob '*';
+my %target_files;
+
+foreach my $input_file (@input_files) {
+    $target_files{$input_file} = 1;
+}
+
+foreach my $input_file (@input_files) {
+    unless (defined $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    unless (open $fh, '<', $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    while (<$fh>) {
+        if (/\A## Copyright/) {
+            delete $target_files{$input_file};
+            last;
+        }
+    }
+
+    close($fh);
+}
+
+@input_files = sort keys %target_files;
+
+foreach my $input_file (@input_files) {
+
+    unless (defined $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    my $output_file = $input_file;
+    $input_file =~ s/$/.bak/;
+    rename "$output_file", "$input_file"
+        or die "Can't rename '$input_file': $!";
+
+    unless (open $in_fh, '<', $input_file) {
+        die "Can't open '$input_file': $!";
+    }
+
+    unless (open $out_fh, '>', $output_file) {
+        die "Can't open '$output_file': $!";
+    }
+
+    while (<$in_fh>) {
+        if (/\A#!/) {
+            $_ .= "## Copyright (C) 20XX by Yours Truly\n";
+        }
+        print $out_fh $_;
+    }
+
+}

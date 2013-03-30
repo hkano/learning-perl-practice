@@ -10,6 +10,6 @@ foreach (@lines) {
 }
 
 %line_count;
-foreach (sort {$line_count{$b} <=> $line_count{$a}} keys %line_count) {
+foreach (sort {$line_count{$b} <=> $line_count{$a} or $a cmp $b} keys %line_count) {
     print "$_ => $line_count{$_}\n";
 }
