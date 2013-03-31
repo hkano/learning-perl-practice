@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use File::Basename;
+use File::Spec;
+
+my $source = $ARGV[0];
+my $destination = $ARGV[1];
+$destination = File::Spec->catfile($destination, basename $source) if -d $destination;
+rename $source, $destination or die "can't rename from '$source' to '$destination': $!\n";

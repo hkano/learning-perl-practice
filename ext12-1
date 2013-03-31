@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+sub attributes {
+    my $file = @_[0];
+    return "no such file." unless -e $file;
+
+    my @attributes;
+    push @attributes, "readable" if -r $file;
+    push @attributes, "writable" if -w $file;
+    push @attributes, "executable" if -x $file;
+    push @attributes, "no attributes" unless @attributes;
+    join ", ", @attributes;
+}
+
+foreach (@ARGV) {
+    $attributes = &attributes($_);
+    print "$_: $attributes\n";
+}

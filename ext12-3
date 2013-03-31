@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+die "no file or directory." unless @ARGV;
+
+print "readable, writable, owner files:\n";
+foreach (@ARGV) {
+    print "$_\n" if -r -w -o $_;
+}

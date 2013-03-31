@@ -1,0 +1,22 @@
+#!/usr/bin/perl
+
+use File::Basename;
+use File::Spec;
+
+my $symlink;
+if ($ARGV[0] =~ /\A-.*\Z/) {
+    $symlink = shift @ARGV if $ARGV[0] eq "-s"
+        or die "invalid parameter '$ARGV[0]'\n";
+}
+
+my $source = $ARGV[0];
+my $destination = $ARGV[1];
+$destination = File::Spec->catfile($destination, basename $source) if -d $destination;
+
+if ($symlink) {
+    symlink $source, $destination
+        or die "can't symlink from '$source' to '$destination': $!\n";
+} else {
+    link $source, $destination
+        or die "can't link from '$source' to '$destination': $!\n";
+}

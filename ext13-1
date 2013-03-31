@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+
+print "input path: ";
+chomp(my $path = <STDIN>);
+if ($path =~ /\A\s*\Z/) {
+    chdir or die "invalid path: $!";
+} else {
+    chdir $path or die "invalid path: $!";
+}
+print join("\n", sort <*>), "\n";

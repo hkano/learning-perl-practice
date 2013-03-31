@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+chdir;
+foreach (sort <.* *>) {
+    my $destination = readlink $_;
+    print "$_ -> $destination\n" if $destination;
+    
+}

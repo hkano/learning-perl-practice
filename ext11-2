@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use DateTime;
+
+unless (scalar(@ARGV) == 3) {
+    die "invalid argument.\n";
+}
+
+my @localtime = localtime;
+
+my $now_datetime = DateTime->new(
+    year    => $localtime[5] + 1900,
+    month   => $localtime[4] + 1,
+    day     => $localtime[3],
+);
+
+my $input_datetime = DateTime->new(
+    year    => $ARGV[0],
+    month   => $ARGV[1],
+    day     => $ARGV[2],
+);
+
+$duration_datetime = $now_datetime - $input_datetime;
+@duration_units = $duration_datetime->in_units(qw(years months days));
+
+printf '%d years, %d months, and %d days', @duration_units;

@@ -1,0 +1,14 @@
+#!/usr/bin/perl
+
+die "no file or directory." unless @ARGV;
+my $old_file; 
+my $old_day = -1;
+
+foreach (@ARGV) {
+    my $file_day = -M $_;
+    if ($file_day > $old_day) {
+        ($old_file, $old_day) = ($_, $file_day);
+    }
+}
+
+printf "old file: %s, old days: %.1f\n", $old_file, $old_day;
