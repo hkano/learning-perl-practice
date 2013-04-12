@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+
+foreach (glob '*') {
+    my ($atime, $mtime) = map {
+        my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = localtime($_);
+        $year += 1900;
+        $mon += 1;
+        $year = sprintf "%4d",  $year;
+        $mon  = sprintf "%02d", $mon;
+        $mday = sprintf "%02d", $mday;
+        $year . $mon . $mday;
+    } (stat $_)[8, 9];
+
+    printf "%-15s %30d %30d\n", $_, $atime, $mtime;
+}

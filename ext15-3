@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+# for (<>) {
+#     my $word = $_ . ': ';
+#     given ($_) {
+#         print "File: $_\n";
+#         when (! -e) { print "not exist.\n"; }
+#         when (-r _) { print "readable.\n";  continue; }
+#         when (-w _) { print "writable.\n";  continue; }
+#         when (-x _) { print "executable\n"; continue; }
+#     }
+# }

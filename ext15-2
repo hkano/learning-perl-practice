@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+# for (1..100) {
+#     my $word = $_ . ': ';
+#     given ($_) {
+#         when ($_ % 3 == 0) { $word .= 'Fizz '; continue; }
+#         when ($_ % 5 == 0) { $word .= 'Buzz '; continue; }
+#         when ($_ % 7 == 0) { $word .= 'Sausage '; }
+#     }
+#     print $word . "\n";
+# }

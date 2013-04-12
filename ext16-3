@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+my $week = `date`;
+if ($week =~ /^Sat/i || $week =~ /^Sun/i) {
+    print "go play\n";
+} else {
+    print "go to work\n";
+}

@@ -1,0 +1,28 @@
+#!/usr/bin/perl
+
+# my $answer_number = int(1 + rand 100);
+# 
+# while (1) {
+#     print "input number: ";
+#     chomp(my $input_number = <STDIN>);
+# 
+#     given ($input_number) {
+#         when (/\A(quit|exit|\s*)\z/i) {
+#             print "bye\n";
+#             last;
+#         }
+#         when (/[^\d]+/) {
+#             print "bad input\n";
+#         }
+#         when ($_ == $answer_number) {
+#             print "match\n";
+#             last;
+#         }
+#         when ($_ > $answer_number) {
+#             print "too high\n";
+#         }
+#         when ($_ < $answer_number) {
+#             print "too low\n";
+#         }
+#     }
+# }

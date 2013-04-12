@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+
+print "input string: ";
+chomp(my $string = <STDIN>);
+print "input substring: ";
+chomp(my $substring = <STDIN>);
+
+my @answers;
+my $position = 0;
+
+while (1) {
+    $position = index($string, $substring, $position);
+    last if $position < 0;
+    push @answers, $position;
+    $position++;
+}
+
+print "answer: @answers\n";

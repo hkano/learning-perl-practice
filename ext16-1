@@ -1,0 +1,4 @@
+#!/usr/bin/perl
+
+chdir '/' or die "can't chdir /: $!";
+exec 'ls', '-l' or die "can't exec ls: $!"; 
